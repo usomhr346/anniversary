@@ -90,7 +90,9 @@ header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;backgrou
 .arch .frame{aspect-ratio:3/5;max-width:100%;border-radius:999px 999px 6px 6px;overflow:hidden;background:var(--surface);display:grid;place-items:center}
 .arch:nth-child(2n) .frame{background:var(--mist)}
 .arch:nth-child(3n) .frame{background:var(--blush)}
-.arch .frame img{width:100%;height:100%;object-fit:cover;display:block}
+.arch .frame{position:relative}
+.arch .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;opacity:0;transition:opacity 1s ease}
+.arch .frame img.on{opacity:1}
 .arch .frame .ph-note{font-size:10px;color:var(--muted);writing-mode:vertical-rl;letter-spacing:.2em}
 .arch figcaption{font-family:var(--f-mincho);font-size:12px;text-align:center;line-height:1.4}
 .arch figcaption small{display:block;font-family:var(--f-latin);font-size:10px;letter-spacing:.15em;color:var(--muted)}
@@ -207,10 +209,7 @@ footer{padding-block:48px;text-align:center;font-size:12px;color:var(--muted);di
   .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
   .mbar .btn{flex:1;padding:12px}
 }
-@media (prefers-reduced-motion:no-preference){
-  .arch .frame img{transition:transform .8s ease}
-  .arch:hover .frame img{transform:scale(1.04)}
-}
+@media (prefers-reduced-motion:reduce){.arch .frame img{transition:none}}
 </style>
 </head>
 <body>
@@ -235,14 +234,14 @@ footer{padding-block:48px;text-align:center;font-size:12px;color:var(--muted);di
     <div class="hero-copy">
       <p class="eyebrow">Mamacharm Anniversary</p>
       <h1>生まれた日の、<br>その続きを残そう。</h1>
-      <p class="lead">お宮参り、100日記念・お食い初め、ハーフバースデー、1歳のお誕生日、七五三。赤ちゃんの成長の節目を、ご自宅スタジオでも出張でも撮影します。ニューボーンフォトを撮らせていただいたご家族はもちろん、はじめての方も大歓迎です。</p>
+      <p class="lead">お宮参り、100日記念・お食い初め、ハーフバースデー、1歳のお誕生日、七五三。赤ちゃんの成長の節目を、自宅スタジオでも出張でも撮影します。ニューボーンフォトを撮らせていただいたご家族はもちろん、はじめての方も大歓迎です。</p>
       <div class="actions">
         <a class="btn line" href="https://line.me/R/ti/p/@644skkwd" target="_blank" rel="noopener">LINEで相談する</a>
         <a class="btn ghost" href="#plan">撮影プランを見る</a>
       </div>
     </div>
     <div class="arches-wrap">
-      <div class="arches" aria-label="成長に合わせた撮影"><!--arches--><figure class="arch"><div class="frame"><img src="photos/omiyamairi-2.jpg" alt="お宮参りの撮影写真"></div><figcaption><small>1 MONTH</small>お宮参り</figcaption></figure><figure class="arch"><div class="frame"><img src="photos/100days-1.jpg" style="object-position:60% 50%" alt="100日記念の撮影写真"></div><figcaption><small>100 DAYS</small>100日記念</figcaption></figure><figure class="arch"><div class="frame"><img src="photos/half-2.jpg" alt="ハーフバースデーの撮影写真"></div><figcaption><small>6 MONTHS</small>ハーフ<br>バースデー</figcaption></figure><figure class="arch"><div class="frame"><img src="photos/first-1.jpg" alt="1歳のお誕生日の撮影写真"></div><figcaption><small>1 YEAR</small>1歳<br>誕生日</figcaption></figure><figure class="arch"><div class="frame"><img src="photos/shichigosan-2.jpg" style="object-position:50% 20%" alt="七五三の撮影写真"></div><figcaption><small>3·5·7</small>七五三</figcaption></figure><!--/arches--></div>
+      <div class="arches" aria-label="成長に合わせた撮影"><!--arches--><figure class="arch"><div class="frame"><img src="photos/omiyamairi-2.jpg" alt="お宮参りの撮影写真" class="on"><img src="photos/omiyamairi-1.jpg" style="object-position:45% 50%" alt="お宮参りの撮影写真" loading="lazy"></div><figcaption><small>1 MONTH</small>お宮参り</figcaption></figure><figure class="arch"><div class="frame"><img src="photos/100days-1.jpg" style="object-position:60% 50%" alt="100日記念の撮影写真" class="on"></div><figcaption><small>100 DAYS</small>100日記念</figcaption></figure><figure class="arch"><div class="frame"><img src="photos/half-2.jpg" alt="ハーフバースデーの撮影写真" class="on"><img src="photos/half-1.jpg" alt="ハーフバースデーの撮影写真" loading="lazy"></div><figcaption><small>6 MONTHS</small>ハーフ<br>バースデー</figcaption></figure><figure class="arch"><div class="frame"><img src="photos/first-1.jpg" style="object-position:50% 30%" alt="1歳のお誕生日の撮影写真" class="on"><img src="photos/first-2.jpg" style="object-position:50% 62%" alt="1歳のお誕生日の撮影写真" loading="lazy"></div><figcaption><small>1 YEAR</small>1歳<br>誕生日</figcaption></figure><figure class="arch"><div class="frame"><img src="photos/shichigosan-2.jpg" style="object-position:50% 20%" alt="七五三の撮影写真" class="on"><img src="photos/shichigosan-1.jpg" style="object-position:50% 38%" alt="七五三の撮影写真" loading="lazy"></div><figcaption><small>3·5·7</small>七五三</figcaption></figure><!--/arches--></div>
       </div>
     </div>
   </div>
@@ -280,7 +279,7 @@ footer{padding-block:48px;text-align:center;font-size:12px;color:var(--muted);di
             <h3>お宮参り<span>OMIYAMAIRI</span></h3>
             <p>神社でのご参拝に合わせて、祝着姿のご家族写真を。</p>
           </div>
-          <!--shots:omiyamairi--><div class="shots"><figure><img src="photos/omiyamairi-1.jpg" alt="お宮参りの撮影写真" loading="lazy"></figure></div><!--/shots-->
+          <!--shots:omiyamairi--><div class="shots"><figure><img src="photos/omiyamairi-2.jpg" alt="お宮参りの撮影写真" loading="lazy"></figure></div><!--/shots-->
         </article>
         <article class="plan">
           <div class="age"><span class="n">100</span><span class="u">日目</span></div>
@@ -304,7 +303,7 @@ footer{padding-block:48px;text-align:center;font-size:12px;color:var(--muted);di
             <h3>1歳のお誕生日<span>FIRST BIRTHDAY</span></h3>
             <p>一升餅やケーキと一緒に、はじめてのお誕生日を。</p>
           </div>
-          <!--shots:first--><div class="shots"><figure><img src="photos/first-2.jpg" style="object-position:50% 62%" alt="1歳のお誕生日の撮影写真" loading="lazy"></figure></div><!--/shots-->
+          <!--shots:first--><div class="shots"><figure><img src="photos/plan-first.jpg" alt="1歳のお誕生日の撮影写真" loading="lazy"></figure></div><!--/shots-->
         </article>
         <article class="plan">
           <div class="age"><span class="n" style="font-size:26px">3·5·7</span><span class="u">歳</span></div>
@@ -312,26 +311,26 @@ footer{padding-block:48px;text-align:center;font-size:12px;color:var(--muted);di
             <h3>七五三<span>SHICHIGOSAN</span></h3>
             <p>着物や袴で、少しお兄さん・お姉さんになった姿を。</p>
           </div>
-          <!--shots:shichigosan--><div class="shots"><figure><img src="photos/shichigosan-1.jpg" style="object-position:50% 38%" alt="七五三の撮影写真" loading="lazy"></figure></div><!--/shots-->
+          <!--shots:shichigosan--><div class="shots"><figure><img src="photos/plan-shichigosan.jpg" alt="七五三の撮影写真" loading="lazy"></figure></div><!--/shots-->
         </article>
       </div>
 
       <div class="pricing" id="price">
         <div class="pr-head">
           <h3>撮影料金</h3>
-          <p>上の5つの撮影から、撮りたいものを選んでください。まとめて選ぶほど特典がつきます。</p>
+          <p>上の撮影から、撮りたいものをいくつ選ぶかでプランが決まります。2 select・3 selectには特典がつきます。</p>
         </div>
         <div class="pr-scroll">
         <table class="pr">
-          <thead><tr><th scope="col">選ぶ数</th><th scope="col">ご新規様</th><th scope="col" class="rp">リピーター様<small>基本料金半額</small></th><th scope="col">特典</th></tr></thead>
+          <thead><tr><th scope="col">プラン</th><th scope="col">ご新規様</th><th scope="col" class="rp">リピーター様<small>基本料金半額</small></th><th scope="col">特典</th></tr></thead>
           <tbody>
-            <tr><th scope="row">1つ</th><td>39,800円<small>（税抜）</small></td><td class="rp">19,800円<small>（税抜）</small></td><td>—</td></tr>
-            <tr><th scope="row">2つ</th><td>79,600円<small>（税抜）</small></td><td class="rp">39,600円<small>（税抜）</small></td><td>10,000円相当のキャンバス</td></tr>
-            <tr><th scope="row">3つ</th><td>119,400円<small>（税抜）</small></td><td class="rp">59,400円<small>（税抜）</small></td><td>22,000円相当のアルバム1冊<small>3つの撮影を終えた時点で</small></td></tr>
+            <tr><th scope="row">1 select</th><td>39,800円<small>（税抜）</small></td><td class="rp">19,800円<small>（税抜）</small></td><td>—</td></tr>
+            <tr><th scope="row">2 select</th><td>79,600円<small>（税抜）</small></td><td class="rp">39,600円<small>（税抜）</small></td><td>10,000円相当のキャンバス</td></tr>
+            <tr><th scope="row">3 select</th><td>119,400円<small>（税抜）</small></td><td class="rp">59,400円<small>（税抜）</small></td><td>22,000円相当のアルバム1冊<small>3つの撮影を終えた時点で</small></td></tr>
           </tbody>
         </table>
         </div>
-        <p class="pr-tax">価格はすべて税抜です。ご自宅スタジオ撮影・出張撮影どちらも同じ料金です。</p>
+        <p class="pr-tax">価格はすべて税抜です。自宅スタジオ撮影・出張撮影どちらも同じ料金です。</p>
         <div class="pr-inc">
           <div><span>撮影時間</span><b>1時間</b><small>準備を含みます</small></div>
           <div><span>お渡しデータ</span><b>全データ</b><small>40枚以上保証</small></div>
@@ -339,8 +338,9 @@ footer{padding-block:48px;text-align:center;font-size:12px;color:var(--muted);di
         </div>
         <ul class="pr-notes">
           <li>リピーター様価格は、Mamacharm groupのニューボーンフォトまたはイベント撮影会で撮影されたご家族が対象です。</li>
-          <li>2つ・3つ選択の場合、お支払いは1つ目の撮影時に一括でお願いします。</li>
-          <li>特典のキャンバス・アルバムに使うデータは、商品のご発注までお客様ご自身で保存をお願いします。</li>
+          <li>2 select・3 selectの場合、お支払いは1つ目の撮影時に一括でお願いします。</li>
+          <li>2 selectの特典キャンバス（10,000円相当）は、Mamacharm groupでこれまでに撮影したお写真が対象です。使用するデータは、商品のご発注までお客様ご自身で保存をお願いします。</li>
+          <li>3 selectの方は、アルバム作成時まで使用したいお写真のデータの保持をお願いします。</li>
           <li>データの再配布・再納品は原則行っておりません。納品後はご自身でバックアップ保存をお願いします。</li>
         </ul>
       </div>
@@ -367,8 +367,8 @@ footer{padding-block:48px;text-align:center;font-size:12px;color:var(--muted);di
         <h2>ご予約から納品まで</h2>
       </div>
       <ol class="flow">
-        <li><b>LINEでご相談</b><span>撮影したい記念日と、ご希望の時期をお送りください。</span></li>
-        <li><b>日程・内容の決定</b><span>場所や衣装、ご家族の人数などを打ち合わせします。</span></li>
+        <li><b>公式LINEからご予約</b><span>公式LINEよりご予約フォーム入力後、「予約した〇〇（お名前）です。」と送ってください。</span></li>
+        <li><b>日程・内容の決定</b><span>撮影場所やご家族の人数、ご希望のお写真のイメージなどをお伺いします。</span></li>
         <li><b>撮影当日</b><span>赤ちゃんのペースに合わせ、授乳やおむつ替えの時間もとります。</span></li>
         <li><b>データ納品</b><span>撮影日から3週間以内に、40枚以上の全データをギガファイル便でお届けします。閲覧期間は納品から100日間です。</span></li>
       </ol>
@@ -385,9 +385,10 @@ footer{padding-block:48px;text-align:center;font-size:12px;color:var(--muted);di
         <details><summary>ニューボーンフォトを撮っていなくても予約できますか？</summary><p>はい、はじめての方もご予約いただけます。Mamacharm groupでニューボーンフォトやイベント撮影会を撮影された方は、リピーター価格（基本料金半額）になります。</p></details>
         <details><summary>当日赤ちゃんが泣いたり、寝てしまったりしたら？</summary><p>よくあることなので大丈夫です。赤ちゃんのペースに合わせて、休憩を入れながら撮影します。</p></details>
         <details><summary>兄弟やおじいちゃん・おばあちゃんも一緒に撮れますか？</summary><p>はい、ごきょうだいも一緒に撮影できます。撮影時間内であれば追加料金はかかりません。</p></details>
-        <details><summary>雨の日や体調不良のときはどうなりますか？</summary><p>キャンセル規定は、公式LINEのご予約フォームをご確認ください。</p></details>
+        <details><summary>雨の日や体調不良のときはどうなりますか？</summary><p>天候や体調不良の際、撮影日時の変更は無料で可能です。キャンセル規定、注意事項等は公式LINEのご予約フォームをご確認ください。</p></details>
         <details><summary>写真はいつ、どうやって受け取れますか？</summary><p>撮影日から3週間以内に、ギガファイル便でデータをお渡しします。閲覧期間は納品から100日間です。データの再配布・再納品は原則行っておりませんので、ご自身でのバックアップ保存をお願いいたします。</p></details>
-        <details><summary>衣装や小物は用意してもらえますか？</summary><p>ご自宅スタジオ撮影・出張撮影ともに、衣装を追加料金なしでお貸しできます。撮影前日までにご相談ください。</p></details>
+        <details><summary>衣装や小物は用意してもらえますか？</summary><p>自宅スタジオ撮影・出張撮影ともに、衣装を追加料金なしでお貸しできます。撮影前日までにご相談ください。1歳のお誕生日のスマッシュケーキは、お客様にご用意をお願いしています。</p></details>
+        <details><summary>自宅スタジオの場所はどこですか？</summary><p>公式LINEよりお問い合わせください。駐車場は1台ございます。</p></details>
       </div>
     </div>
   </section>
@@ -413,6 +414,15 @@ footer{padding-block:48px;text-align:center;font-size:12px;color:var(--muted);di
 <div class="mbar"><a class="btn line" href="https://line.me/R/ti/p/@644skkwd" target="_blank" rel="noopener">LINEで予約・相談する</a></div>
 
 <script>
+(function(){
+  document.querySelectorAll('.arch .frame').forEach(function(fr,idx){
+    var imgs=fr.querySelectorAll('img'); if(imgs.length<2) return;
+    var i=0;
+    setTimeout(function(){ setInterval(function(){
+      imgs[i].classList.remove('on'); i=(i+1)%imgs.length; imgs[i].classList.add('on');
+    },2800); }, idx*500);
+  });
+})();
 (function(){
   const input=document.getElementById('bday'), out=document.getElementById('out');
   const items=[
